@@ -4,7 +4,10 @@
   "description": "DESCRIPTION",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "shoelace-ui/aglet": "*"
+  },
   "development": {},
-  "license": "MIT"
+  "license": "MIT",
+  "poe-builder": true
 }
