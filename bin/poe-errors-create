@@ -1,0 +1,43 @@
+#!/bin/bash
+
+check() {
+  hash $1 2>/dev/null || { echo >&2 "This needs \`$1\` to function properly. Please consule the poe-ui readme for more info."; exit 1; }
+}
+
+check git
+check npm
+check make
+
+PROJECT=`pwd | xargs basename`
+DESCRIPTION='Our 4xx and 5xx pages'
+ORGANIZATION=`git config --get user.name`
+
+read -e -p "project: ($PROJECT) " input
+PROJECT="${input:-$PROJECT}"
+
+read -e -p "description: ($DESCRIPTION) " input
+DESCRIPTION="${input:-$DESCRIPTION}"
+
+read -e -p "organization: ($ORGANIZATION) " input
+ORGANIZATION="${input:-$ORGANIZATION}"
+
+MAKEFILE="
+include ./node_modules/poe-errors/tasks.mk
+"
+
+echo "$MAKEFILE" > ./Makefile
+
+SILENT="--silent"
+
+if [ -n "$POE_VERBOSE" ]; then
+  SILENT=""
+fi
+
+echo 'Installing dependencies. This may take awhile.'
+npm install ${POE_ERRORS_INSTALL:-poe-errors} $SILENT || exit 1;
+
+mkdir -p public
+
+PROJECT=$PROJECT \
+DESCRIPTION=$DESCRIPTION \
+ORGANIZATION=$ORGANIZATION make init

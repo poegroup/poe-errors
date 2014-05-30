@@ -1,0 +1,32 @@
+{
+  "name": "poe-errors",
+  "bin": {
+    "poe-errors-create": "bin/poe-errors-create"
+  },
+  "version": "0.1.0",
+  "description": "poe 4xx and 5xx pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/poegroup/poe-errors.git"
+  },
+  "keywords": [
+    "poe",
+    "status",
+    "error",
+    "500",
+    "400"
+  ],
+  "author": "Cameron Bytheway <bytheway.cameron@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poegroup/poe-errors/issues"
+  },
+  "homepage": "https://github.com/poegroup/poe-errors",
+  "dependencies": {
+    "poe-ui-kit": "^0.2.12"
+  }
+}

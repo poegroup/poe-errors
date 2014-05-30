@@ -1,0 +1,10 @@
+{
+  "repo": "REPO",
+  "name": "PROJECT",
+  "description": "DESCRIPTION",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT"
+}
